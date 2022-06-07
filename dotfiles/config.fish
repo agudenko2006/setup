@@ -4,6 +4,7 @@ alias ls="exa --icons"
 alias la="exa -a"
 alias ll="exa -lh"
 alias al="exa -lah"
+alias tree="ls --tree"
 
 abbr -a vi nvim
 abbr -a sl ls
