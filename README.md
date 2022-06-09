@@ -10,8 +10,8 @@ Main functions:
 - install_packages(distro, list)
 
 Installation options:
-[ ] Base (python, nvim, tmux)
-[ ] Server (adds docker)
+[x] Base (python, nvim, tmux)
+[x] Server (adds docker)
 [ ] Dev (adds rustup, go, lsp, ansible)
 [ ] GUI (adds qemu, bspwm+sxhkd+polybar+rofi, flatpak, brave)
 [ ] Full (adds blender, inkscape, gimp, prusaslicer)
