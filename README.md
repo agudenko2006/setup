@@ -12,6 +12,6 @@ Main functions:
 Installation options:
 [x] Base (python, nvim, tmux)
 [x] Server (adds docker)
-[ ] Dev (adds rustup, go, lsp, ansible)
+[x] Dev (adds rustup, ~~go~~, ~~lsp~~, ansible)
 [ ] GUI (adds qemu, bspwm+sxhkd+polybar+rofi, flatpak, brave)
 [ ] Full (adds blender, inkscape, gimp, prusaslicer)

@@ -3,7 +3,7 @@
 # Main functions
 
 select_version() {
-    options=("Base" "Server")
+    options=("Base" "Server" "Dev")
 
     for i in ${!options[@]}; do
         echo "$i) ${options[$i]}"
@@ -26,7 +26,7 @@ detect_distro() {
 
 install() {
     debug installing: $*
-    if [ $distro = 'debian' ]; then sudo apt install $*; fi
+    if [ $distro = 'debian' ]; then sudo apt install python3-pip $*; fi
     if [ $distro = 'arch'   ]; then sudo pacman -S --needed $*; fi
 }
 
@@ -36,10 +36,20 @@ main() {
     select_version
     detect_distro
 
+    # Installing things that are not in the repos
+    install curl # just making sure that it's there
+
+    if [ $version -ge 2 ]; then
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+        python3 -m pip install ansible
+    fi # Dev
+
+    curl -sS https://starship.rs/install.sh | sh # starship prompt
+
     # Generating the package list
     packages=$pkg_base
-    if [ $version -ge 1 ] && [ $distro = 'debian' ]; then packages+=$deb_srv;  fi
-    if [ $version -ge 1 ] && [ $distro = 'arch'   ]; then packages+=$arch_srv; fi
+    if [ $version -ge 1 ]; then pkg=$distro\_srv; packages+=${!pkg};  fi
+    if [ $version -ge 2 ]; then pkg=$distro\_dev; packages+=${!pkg};  fi
 
     install $packages
 }
