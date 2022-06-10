@@ -19,15 +19,15 @@ debug() {
 }
 
 detect_distro() {
-    if [[ -e '/bin/apt'    ]]; then distro="debian"; fi
-    if [[ -e '/bin/pacman' ]]; then distro="arch"; fi
+    if [[ -e '/usr/bin/apt'    ]]; then distro="debian"; fi
+    if [[ -e '/usr/bin/pacman' ]]; then distro="arch"; fi
     debug running on $distro
 }
 
 install() {
     debug installing: $*
-    if [ $distro = 'debian' ]; then sudo apt install python3-pip $*; fi
-    if [ $distro = 'arch'   ]; then sudo pacman -S --needed $*; fi
+    if [ "$distro" = "debian" ]; then sudo apt install python3-pip $*; fi
+    if [ "$distro" = "arch"   ]; then sudo pacman -S --needed $*; fi
 }
 
 
@@ -45,6 +45,8 @@ main() {
     fi # Dev
 
     curl -sS https://starship.rs/install.sh | sh # starship prompt
+    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+               https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' #vimplug
 
     # Generating the package list
     packages=$pkg_base
