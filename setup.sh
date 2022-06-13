@@ -2,7 +2,7 @@
 source ./src/setup.sh
 
 # Base packages
-pkg_base="python3 neovim tmux fish exa ripgrep "
+pkg_base="python3 neovim tmux fish exa ripgrep mc "
 
 # Debian packages
 deb_srv="docker docker.io "

@@ -19,14 +19,14 @@ debug() {
 }
 
 detect_distro() {
-    if [[ -e '/usr/bin/apt'    ]]; then distro="debian"; fi
+    if [[ -e '/usr/bin/apt'    ]]; then distro="deb"; fi
     if [[ -e '/usr/bin/pacman' ]]; then distro="arch"; fi
     debug running on $distro
 }
 
 install() {
     debug installing: $*
-    if [ "$distro" = "debian" ]; then sudo apt install python3-pip $*; fi
+    if [ "$distro" = "deb" ]; then sudo apt install python3-pip $*; fi
     if [ "$distro" = "arch"   ]; then sudo pacman -S --needed $*; fi
 }
 
@@ -50,7 +50,7 @@ main() {
 
     # Generating the package list
     packages=$pkg_base
-    if [ $version -ge 1 ]; then pkg=$distro\_srv; packages+=${!pkg};  fi
+    if [ $version -ge 1 ]; then pkg=$distro\_srv; echo $pkg; packages+=${!pkg};  fi
     if [ $version -ge 2 ]; then pkg=$distro\_dev; packages+=${!pkg};  fi
 
     install $packages
