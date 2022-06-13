@@ -10,7 +10,7 @@ deb_dev=""
 
 # Arch packages
 arch_srv="docker "
-arch_dev="base-devel"
+arch_dev="base-devel "
 
 # Starting the actual script
 main
