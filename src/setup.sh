@@ -39,14 +39,14 @@ main() {
     # Installing things that are not in the repos
     install curl # just making sure that it's there
 
-    if [ $version -ge 2 ]; then
-        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-        python3 -m pip install ansible
-    fi # Dev
-
     curl -sS https://starship.rs/install.sh | sh # starship prompt
     sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
                https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' #vimplug
+
+    if [ $version -ge 2 ]; then
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+        python3 -m pip install ansible
+    fi 
 
     # Generating the package list
     packages=$pkg_base
