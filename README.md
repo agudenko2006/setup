@@ -1,7 +1,7 @@
 # Setup script
 
 TODO's:
-[ ] main: check if $version is a number
+- [ ] main: check if $version is a number
 
 Main functions:
 - select_version
@@ -10,8 +10,8 @@ Main functions:
 - install_packages(distro, list)
 
 Installation options:
-[x] Base (python, nvim, tmux)
-[x] Server (adds docker)
-[x] Dev (adds rustup, ~~go~~, ~~lsp~~, ansible)
-[ ] GUI (adds qemu, bspwm+sxhkd+polybar+rofi, flatpak, brave)
-[ ] Full (adds blender, inkscape, gimp, prusaslicer)
+- [x] Base (python, nvim, tmux)
+- [x] Server (adds docker)
+- [x] Dev (adds rustup, ~~go~~, ~~lsp~~, ansible)
+- [ ] GUI (adds qemu, bspwm+sxhkd+polybar+rofi, flatpak, brave)
+- [ ] Full (adds blender, inkscape, gimp, prusaslicer)
